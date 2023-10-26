@@ -6,3 +6,7 @@ netstat -tuln
 
 Password from ArgoCD
 DiEnSjI3FWHcI2Jf
+
+
+argocd app create say-hi --repo https://github.com/ZviadiOlegovich/ArgoCD_HW.git 
+--path . --dest-server https://kubernetes.default.svc --dest-namespace default

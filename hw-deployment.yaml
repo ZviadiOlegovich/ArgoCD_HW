@@ -6,7 +6,7 @@ metadata:
   labels:
     app: my-prog-deployment
 spec:
-  replicas: 2
+  replicas: 4
   minReadySeconds: 3
   strategy:
     rollingUpdate:
