@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-prog-deployment
-  namespace: default
+  name: my-deployment
+  namespace: test
   labels:
-    app: my-prog-deployment
+    app: test-app
 spec:
-  replicas: 4
+  replicas: 2
   minReadySeconds: 3
   strategy:
     rollingUpdate:
@@ -15,14 +15,14 @@ spec:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: my-prog-server
+      app: my-server
   template:
     metadata:
       labels:
-        app: my-prog-server
+        app: my-server
     spec:
       containers:
-        - name: my-prog-app
+        - name: my-app
           image: docker-registry:5000/my-prog1:v1
           imagePullPolicy: Always
           ports:
