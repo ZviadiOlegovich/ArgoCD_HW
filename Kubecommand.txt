@@ -1,1 +1,8 @@
 kubectl config view | grep namespace
+
+
+netstat -tuln
+
+
+Password from ArgoCD
+DiEnSjI3FWHcI2Jf

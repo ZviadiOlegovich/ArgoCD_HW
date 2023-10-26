@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-prog-deployment
+  namespace: default
+  labels:
+    app: my-prog-deployment
+spec:
+  replicas: 2
+  minReadySeconds: 3
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: my-prog-server
+  template:
+    metadata:
+      labels:
+        app: my-prog-server
+    spec:
+      containers:
+        - name: my-prog-app
+          image: docker-registry:5000/my-prog1:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: reg-cred-secret

@@ -2,3 +2,4 @@
 ArgoCd_instruction
 docker-registry.yaml
 my-prod1-pod.yaml
+nginx_config.yaml
